@@ -1,0 +1,7 @@
+python create_patches_fp.py --source /scratch/ekansh.chauhan/BRAIN/Data --save_dir /scratch/ekansh.chauhan/BRAIN/IPD/RESULTS_DIRECTORY --patch_size 224 --preset ipd_preset.csv --seg --patch --stitch
+
+CUDA_VISIBLE_DEVICES=0,1 python extract_features_fp.py --data_h5_dir /scratch/ekansh.chauhan/BRAIN/IPD/RESULTS_DIRECTORY --data_slide_dir /scratch/ekansh.chauhan/BRAIN/IPD/Data --csv_path /scratch/ekansh.chauhan/BRAIN/IPD/RESULTS_DIRECTORY/process_list_autogen.csv --feat_dir /scratch/ekansh.chauhan/BRAIN/IPD/FEATURES_DIRECTORY_BT --batch_size 1024 --slide_ext .tiff --model_type resnet_50_BT
+
+python create_splits_seq.py --n_classes 3 --dataset_csv_path /home/ekansh.chauhan/dataset_csv/tmp_ipd.csv --split_dir_name /home/ekansh.chauhan/splits/IPD/splits_3_way
+
+python Main_DTFD_MIL.py --k_start 9 --k_end 10 --log_dir /home/ekansh.chauhan/DTFD-MIL/results/IPD/three_way --name bt --num_cls 3 --splits_dir /home/ekansh.chauhan/CLAM/splits/IPD/splits_3_way/task_100 --dataset_csv /home/ekansh.chauhan/dataset_csv/tmp_ipd.csv --data_dir /scratch/ekansh.chauhan/BRAIN/IPD/FEATURES_DIRECTORY_BT --in_chn 2048 --mDim 384

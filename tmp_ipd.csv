@@ -1,0 +1,9 @@
+case_id,slide_id,label
+patient_2,IN Brain-0002,subtype_1
+patient_4,IN Brain-0004(a),subtype_1
+patient_4,IN Brain-0004(b),subtype_1
+patient_7,IN Brain-0007(a),subtype_2
+patient_7,IN Brain-0007(b),subtype_2
+patient_8,IN Brain-0008(a),subtype_3
+patient_8,IN Brain-0008(b),subtype_3
+patient_12,IN Brain-0012(a),subtype_2
